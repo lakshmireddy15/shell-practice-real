@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NUM=30
-if [$NUM -eq 30]
+if [$NUM -eq 30];
 then
     echo "Number is equal to 30"
 fi
