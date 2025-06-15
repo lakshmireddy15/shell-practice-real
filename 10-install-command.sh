@@ -22,5 +22,6 @@ then
 else
 then
     echo "Mysql is not installed"
+fi
 
 
