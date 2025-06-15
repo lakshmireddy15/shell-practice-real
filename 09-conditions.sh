@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NUM=300
+NUM=30
 if [ $NUM -eq 30 ]
 then
     echo "Number is equal to 30"
