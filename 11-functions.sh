@@ -29,6 +29,7 @@ then
     VALIDATE $? "mysql"
 else
     echo " Mysql is installed sucessfully"
+fi
 
 dnf list installed python3
 if [ $? -ne 0 ]
@@ -38,7 +39,7 @@ then
     VALIDATE $? "python3"
 else
     echo " python3 is installed sucessfully"
-
+fi
 
 dnf list installed nginx
 if [ $? -ne 0 ]
@@ -48,3 +49,4 @@ then
     VALIDATE $? "nginx"
 else
     echo " nginx is installed sucessfully"
+fi
