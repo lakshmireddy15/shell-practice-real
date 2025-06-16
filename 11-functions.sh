@@ -17,6 +17,7 @@ VALIDATE(){
         echo "$2 is sucessfully installed"
     else
         echo "$2 mysql is installation failed"
+        exit 1
 }
 
 dnf list installed mysql
