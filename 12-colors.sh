@@ -2,6 +2,6 @@
 
 #echo -e " Hello World"
 
-echo -e "\e[31m Hello world]"
+echo -e "\e[31m Hello world \e[0m "
 
 echo -e " Hello World"
