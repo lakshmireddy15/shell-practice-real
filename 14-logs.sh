@@ -12,12 +12,12 @@ LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 
 mkdir -p $LOGS_FOLDER
 
-echo " Script started at $(date)" &>>$LOG_FILE
+echo " Script started at $(date)" | tee -a $LOG_FILE
 if [ $USERID -eq 0 ]
 then
-    echo -e " $G Running with root user $N"
+    echo -e " $G Running with root user $N" | tee -a $LOG_FILE
 else
-    echo -e " $R Running with normal user $N"
+    echo -e " $R Running with normal user $N" | tee -a $LOG_FILE
     exit 1
 
 fi
@@ -25,28 +25,28 @@ fi
 VALIDATE(){
     if [ $1 -eq 0 ]
     then
-        echo -e "$Y $2 is sucessfully installed $N"
+        echo -e "$Y $2 is sucessfully installed $N" | tee -a $LOG_FILE
     else
-        echo -e "$R $2 installation failed $N"
+        echo -e "$R $2 installation failed $N" | tee -a $LOG_FILE
         exit 1
     fi
 }
 
-dnf list installed mysql  &>>$LOG_FILE
+dnf list installed mysql   &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
     echo -e " $R Mysql is not installed $N"
-    dnf install mysql -y  &>>$LOG_FILE
+    dnf install mysql -y  | tee -a $LOG_FILE
     VALIDATE $? "mysql"
 else
     echo -e " $G Mysql is installed successfully $N"
 fi
 
-dnf list installed python3  &>>$LOG_FILE
+dnf list installed python3   &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
     echo -e " $R python3 is not installed $N"
-    dnf install python3 -y  &>>$LOG_FILE
+    dnf install python3 -y  | tee -a $LOG_FILE
     VALIDATE $? "python3"
 else
     echo " $G python3 is installed successfully $N"
